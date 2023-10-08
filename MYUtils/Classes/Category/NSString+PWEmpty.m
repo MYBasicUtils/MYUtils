@@ -1,14 +1,14 @@
 //
-//  NSString+PWEmpty.m
-//  PWNote
+//  NSString+MYEmpty.m
+//  MYNote
 //
 //  Created by mingyan on 2019/1/8.
 //  Copyright © 2019 明妍. All rights reserved.
 //
 
-#import "NSString+PWEmpty.h"
+#import "NSString+MYEmpty.h"
 
-@implementation NSString (PWEmpty)
+@implementation NSString (MYEmpty)
 
 -(BOOL)isEmpty {
     if ([self trim].length) {

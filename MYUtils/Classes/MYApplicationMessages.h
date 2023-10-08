@@ -1,6 +1,6 @@
 //
-//  PWApplicationMessages.h
-//  PWNote
+//  MYApplicationMessages.h
+//  MYNote
 //
 //  Created by mingyan on 2018/12/25.
 //  Copyright © 2018 明妍. All rights reserved.

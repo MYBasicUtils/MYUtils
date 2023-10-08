@@ -15,7 +15,7 @@
 - (id)my_randomObject;
 - (NSArray *)my_reverse;
 - (BOOL)my_hasIndex:(NSInteger)index;
-- (id)pw_objectAtSafeIndex:(NSUInteger)index;
+- (id)MY_objectAtSafeIndex:(NSUInteger)index;
 
 - (void)my_addObservers:(NSArray *)observers forKeyPaths:(NSArray *)keyPaths options:(NSKeyValueObservingOptions)options context:(void *)context;
 - (void)my_removeObservers:(NSArray *)observers forKeyPaths:(NSArray *)keyPaths;

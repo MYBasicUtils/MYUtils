@@ -6,8 +6,8 @@
 //  Copyright © 2019年 明妍. All rights reserved.
 //
 
-#import "NSArray+PWAddition.h"
-#import "NSDictionary+PWAddition.h"
+#import "NSArray+MYAddition.h"
+#import "NSDictionary+MYAddition.h"
 
 @implementation NSArray (MYAddition)
 
@@ -46,7 +46,7 @@
         return NO;
 }
 
-- (id)pw_objectAtSafeIndex:(NSUInteger)index {
+- (id)MY_objectAtSafeIndex:(NSUInteger)index {
     if (self.count > 0 && self.count > index) {
         return [self objectAtIndex:index];
     }
@@ -106,7 +106,7 @@
     for (id object in self) {
         if (object) {
             if ([object isKindOfClass:[NSDictionary class]]){
-                [(NSDictionary *)object pw_serialzeWithJsonString:string];
+                [(NSDictionary *)object MY_serialzeWithJsonString:string];
             }
             else if([object isKindOfClass:[NSArray class]]) {
                 [self my_serialzeWithJsonString:string];

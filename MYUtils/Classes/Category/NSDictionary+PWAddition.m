@@ -6,10 +6,10 @@
 //  Copyright © 2019年 明妍. All rights reserved.
 //
 
-#import "NSDictionary+PWAddition.h"
-#import "NSArray+PWAddition.h"
+#import "NSDictionary+MYAddition.h"
+#import "NSArray+MYAddition.h"
 
-@implementation NSDictionary (PWAddition)
+@implementation NSDictionary (MYAddition)
 
 //打印utf-8
 - (NSString *)description
@@ -33,7 +33,7 @@
     return strM;
 }
 
-- (NSArray *)pw_arrayForKey:(NSString *)key
+- (NSArray *)MY_arrayForKey:(NSString *)key
 {
     return [self ykchild_valueForKey:key withClass:[NSArray class]];
 }
@@ -42,11 +42,11 @@
     id value = [self objectForKey:key];
     return [value isKindOfClass:aClass] ? value : nil;
 }
-- (NSDictionary *)pw_dictionaryForKey:(NSString *)key
+- (NSDictionary *)MY_dictionaryForKey:(NSString *)key
 {
     return [self ykchild_valueForKey:key withClass:[NSDictionary class]];
 }
-- (NSInteger)pw_integerForKey:(NSString *)key
+- (NSInteger)MY_integerForKey:(NSString *)key
 {
     id value = [self objectForKey:key];
     if ([value respondsToSelector:@selector(integerValue)]) {
@@ -55,7 +55,7 @@
     return 0;
 }
 
-- (NSString *)pw_stringForKey:(NSString *)key
+- (NSString *)MY_stringForKey:(NSString *)key
 {
     id value = [self objectForKey:key];
     if ([value isKindOfClass:[NSString class]]) {
@@ -68,7 +68,7 @@
 }
 
 
-+ (NSDictionary *)pw_dictionaryWithJsonString:(NSString *)jsonString
++ (NSDictionary *)MY_dictionaryWithJsonString:(NSString *)jsonString
 {
     NSDictionary *dic;
     if ([jsonString isKindOfClass:[NSString class]]) {
@@ -90,13 +90,13 @@
 
 
 
-- (id)pw_valueForKey:(NSString *)key withClass:(Class)aClass
+- (id)MY_valueForKey:(NSString *)key withClass:(Class)aClass
 {
     id value = [self objectForKey:key];
     return [value isKindOfClass:aClass] ? value : nil;
 }
 
-- (int)pw_intForKey:(NSString *)key
+- (int)MY_intForKey:(NSString *)key
 {
     id value = [self objectForKey:key];
     if ([value respondsToSelector:@selector(intValue)]) {
@@ -105,7 +105,7 @@
     return 0;
 }
 
-- (float)pw_floatForKey:(NSString *)key
+- (float)MY_floatForKey:(NSString *)key
 {
     id value = [self objectForKey:key];
     if ([value respondsToSelector:@selector(floatValue)]) {
@@ -114,7 +114,7 @@
     return 0.0;
 }
 
-- (double)pw_doubleForKey:(NSString *)key
+- (double)MY_doubleForKey:(NSString *)key
 {
     id value = [self objectForKey:key];
     if ([value respondsToSelector:@selector(doubleValue)]) {
@@ -123,7 +123,7 @@
     return 0.0;
 }
 
-- (BOOL)pw_boolForKey:(NSString *)key
+- (BOOL)MY_boolForKey:(NSString *)key
 {
     id value = [self objectForKey:key];
     if ([value respondsToSelector:@selector(boolValue)]) {
@@ -133,25 +133,25 @@
 }
 
 /*非nil字符串*/
-- (NSString *)pw_safeStringForKey:(NSString *)key
+- (NSString *)MY_safeStringForKey:(NSString *)key
 {
-    NSString *stringValue = [self pw_stringForKey:key];
+    NSString *stringValue = [self MY_stringForKey:key];
     return stringValue ? stringValue : @"";
 }
 
 /*内容为整型值的字符串*/
-- (NSString *)pw_intStringForKey:(NSString *)key
+- (NSString *)MY_intStringForKey:(NSString *)key
 {
-    return [NSString stringWithFormat:@"%d", [self pw_intForKey:key]];
+    return [NSString stringWithFormat:@"%d", [self MY_intForKey:key]];
 }
 
-- (NSURL *)pw_urlForKey:(NSString *)key
+- (NSURL *)MY_urlForKey:(NSString *)key
 {
-    return [NSURL URLWithString:[self pw_stringForKey:key]];
+    return [NSURL URLWithString:[self MY_stringForKey:key]];
 }
 
 /*日期(可处理NSDate对象、秒数或毫秒数、“yyyy-MM-dd HH:mm:ss”格式字符串)*/
-- (NSDate *)pw_dateForKey:(NSString *)key isMS:(BOOL)isMS
+- (NSDate *)MY_dateForKey:(NSString *)key isMS:(BOOL)isMS
 {
     id value = [self objectForKey:key];
     if ([value isKindOfClass:[NSDate class]]) {
@@ -175,36 +175,36 @@
     return nil;
 }
 
-- (NSDate *)pw_dateForKey:(NSString *)key
+- (NSDate *)MY_dateForKey:(NSString *)key
 {
-    return [self pw_dateForKey:key isMS:NO];
+    return [self MY_dateForKey:key isMS:NO];
 }
 
-- (NSDate *)pw_dateForMSKey:(NSString *)key
+- (NSDate *)MY_dateForMSKey:(NSString *)key
 {
-    return [self pw_dateForKey:key isMS:YES];
+    return [self MY_dateForKey:key isMS:YES];
 }
 
-- (NSMutableArray *)pw_mutableArrayForKey:(NSString *)key
+- (NSMutableArray *)MY_mutableArrayForKey:(NSString *)key
 {
-    NSArray *array = [self pw_arrayForKey:key];
+    NSArray *array = [self MY_arrayForKey:key];
     return array ? [NSMutableArray arrayWithArray:array] : nil;
 }
 
-- (NSMutableDictionary *)pw_mutableDictionaryForKey:(NSString *)key
+- (NSMutableDictionary *)MY_mutableDictionaryForKey:(NSString *)key
 {
-    NSDictionary *dictionary = [self pw_dictionaryForKey:key];
+    NSDictionary *dictionary = [self MY_dictionaryForKey:key];
     return dictionary ? [NSMutableDictionary dictionaryWithDictionary:dictionary] : nil;
 }
 
-- (NSString *)pw_jsonString
+- (NSString *)MY_jsonString
 {
     if (!self || ![self isKindOfClass:[NSDictionary class]] || [self count] == 0) {
         return @"";
     }
     
     NSMutableString *jsonString = [NSMutableString string];
-    [self pw_serialzeWithJsonString:jsonString];
+    [self MY_serialzeWithJsonString:jsonString];
     if ([jsonString length]) {
         [jsonString deleteCharactersInRange:NSMakeRange([jsonString length] - 1, 1)];
     }
@@ -212,7 +212,7 @@
     return jsonString;
 }
 
-- (void)pw_serialzeWithJsonString:(NSMutableString *)jsonString
+- (void)MY_serialzeWithJsonString:(NSMutableString *)jsonString
 {
     [jsonString appendString:@"{"];
     NSArray *allKeys = [self allKeys];
@@ -229,7 +229,7 @@
             }
             else if ([value isKindOfClass:[NSDictionary class]]) {
                 [jsonString appendFormat:@"\"%@\":", key];
-                [value pw_serialzeWithJsonString:jsonString];
+                [value MY_serialzeWithJsonString:jsonString];
             }
             else {
                 [jsonString appendFormat:@"\"%@\":\"%@\",", key, [value description]];
@@ -244,16 +244,16 @@
 
 @end
 
-@implementation NSMutableDictionary (PWSafeAccess)
+@implementation NSMutableDictionary (MYSafeAccess)
 
--(void)pw_setObject:(id)anObject forKey:(id)aKey
+-(void)MY_setObject:(id)anObject forKey:(id)aKey
 {
     if(!aKey) return;
     if(!anObject) return;
     [self setObject:anObject forKey:aKey];
 }
 
--(void)pw_setValue:(id)value forKey:(NSString*)key
+-(void)MY_setValue:(id)value forKey:(NSString*)key
 {
     if(![key isKindOfClass:[NSString class]]) return;
     [self setValue:value forKey:key];
