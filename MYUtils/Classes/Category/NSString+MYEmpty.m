@@ -6,7 +6,7 @@
 //  Copyright © 2019 明妍. All rights reserved.
 //
 
-#import "NSString+MYEmpty.h"
+#import <MYUtils/MYUtils.h>
 
 @implementation NSString (MYEmpty)
 

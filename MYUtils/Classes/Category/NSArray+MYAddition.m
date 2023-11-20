@@ -46,7 +46,7 @@
         return NO;
 }
 
-- (id)MY_objectAtSafeIndex:(NSUInteger)index {
+- (id)my_objectAtSafeIndex:(NSUInteger)index {
     if (self.count > 0 && self.count > index) {
         return [self objectAtIndex:index];
     }

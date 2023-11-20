@@ -9,6 +9,7 @@
 #import "MBProgressHUD+MYUtils.h"
 
 @implementation MBProgressHUD (MYUtils)
+
 /**
  *  =======显示信息
  *  @param text 信息内容
@@ -64,7 +65,7 @@
  */
 + (void)showError:(NSString *)error
 {
-    [self showError:error toView:nil];
+    [self showError:error toView:UIApplication.sharedApplication.keyWindow];
 }
 
 + (void)showError:(NSString *)error toView:(UIView *)view{
@@ -77,7 +78,7 @@
  */
 + (MBProgressHUD *)showMessage:(NSString *)message
 {
-    return [self showMessage:message toView:nil];
+    return [self showMessage:message toView:UIApplication.sharedApplication.keyWindow];
 }
 
 /**
@@ -99,6 +100,14 @@
     return hud;
 }
 
+
++ (void)showLoadingToView:(UIView *)view {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+    // Set the label text.
+    hud.label.text = NSLocalizedString(@"Loading...", @"HUD loading title");
+    // You can also adjust other label properties if needed.
+    // hud.label.font = [UIFont italicSystemFontOfSize:16.f];
+}
 /**
  *  手动关闭MBProgressHUD
  */
