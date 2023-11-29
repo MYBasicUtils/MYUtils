@@ -6,12 +6,20 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CocoaLumberjack/CocoaLumberjack.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
+
+#ifdef __OPTIMIZE__
+#define NSLog(...) {}
+#else
+#define NSLog(...) [MYLog debug:__VA_ARGS__]
+#endif
+
 @interface MYLog : NSObject
 
-+ (void)debug:(NSString *)msg;
++ (void)debug:(NSString *)format, ...;
 
 @end
 

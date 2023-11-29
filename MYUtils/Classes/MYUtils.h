@@ -8,7 +8,11 @@
 
 #ifndef MYUtils_h
 #define MYUtils_h
-#import <RACEXTScope.h>
+#import <CocoaLumberjack/CocoaLumberjack.h>
+
+
+
+#import "RACEXTScope.h"
 #import "UIView+MYAdditons.h"
 #import "NSString+MYEmpty.h"
 #import "NSArray+MYAddition.h"
@@ -17,6 +21,7 @@
 #import "NSString+MYNocale.h"
 #import "MYLog.h"
 #import "NSData+MYEtension.h"
+#import "NSArray+MYSafe.h"
 
 #if DEBUG
 #define rac_keywordify autoreleasepool {}
@@ -43,5 +48,7 @@ _Pragma("clang diagnostic ignored \"-Warc-performSelector-leaks\"") \
 Stuff; \
 _Pragma("clang diagnostic pop") \
 } while (0)
+
+
 
 #endif /* MYUtils_h */

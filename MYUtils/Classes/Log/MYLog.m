@@ -6,12 +6,12 @@
 //
 
 #import "MYLog.h"
+#import <CocoaLumberjack/DDLog.h>
 
 @implementation MYLog
 
-+ (void)debug:(NSString *)msg {
-    //TODO: wmy 去除nslog
-    NSLog(msg);
++ (void)debug:(NSString *)format, ... {
+    DDLogDebug(format);
 }
 
 @end

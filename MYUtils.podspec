@@ -18,6 +18,20 @@ Pod::Spec.new do |s|
 
   s.source_files = 'MYUtils/Classes/**/*'
   
+  s.prefix_header_contents = <<-EOS
+  
+  #import <CocoaLumberjack/CocoaLumberjack.h>
+  
+  #ifdef DEBUG
+  static const DDLogLevel ddlogLevel = DDLogLevelVerbose;
+  static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
+  #else
+  static const DDLogLevel ddlogLevel = DDLogLevelWarning;
+  static const DDLogLevel ddLogLevel = DDLogLevelWarning;
+  #endif
+  
+  EOS
+  
   # s.resource_bundles = {
   #   'MYUtils' => ['MYUtils/Assets/*.png']
   # }
@@ -27,5 +41,6 @@ Pod::Spec.new do |s|
   # s.dependency 'AFNetworking', '~> 2.3'
   s.dependency 'MBProgressHUD'
   s.dependency 'ReactiveObjC'
-
+  s.dependency 'CocoaLumberjack'
+  
 end
