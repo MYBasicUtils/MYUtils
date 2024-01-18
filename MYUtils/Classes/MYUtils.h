@@ -21,6 +21,7 @@
 #import "NSString+MYNocale.h"
 #import "MYLog.h"
 #import "NSData+MYEtension.h"
+#import "NSString+MYJson.h"
 #import "NSArray+MYSafe.h"
 
 #if DEBUG
