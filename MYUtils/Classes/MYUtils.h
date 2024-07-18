@@ -23,6 +23,7 @@
 #import "NSData+MYEtension.h"
 #import "NSString+MYJson.h"
 #import "NSArray+MYSafe.h"
+#import "MYDefines.h"
 
 #if DEBUG
 #define rac_keywordify autoreleasepool {}
