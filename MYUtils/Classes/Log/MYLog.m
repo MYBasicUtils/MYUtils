@@ -29,4 +29,9 @@
     DDLogDebug(message);
 }
 
++ (void)setup {
+    [DDLog addLogger:[DDTTYLogger sharedInstance]];
+    [DDLog addLogger:[DDASLLogger sharedInstance]];
+}
+
 @end

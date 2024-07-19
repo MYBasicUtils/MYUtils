@@ -21,6 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)debug:(NSString *)format, ...;
 
++ (void)setup;
+
 @end
 
 NS_ASSUME_NONNULL_END
